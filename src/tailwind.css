@@ -30,7 +30,7 @@
 .koenigEditor figure { @apply mb-8 }
 .koenigEditor figcaption { @apply block text-gray-500 text-xs text-center pt-4 px-8 pb-8 mb-8 }
 
-body { @apply bg-gray-50 grid grid-cols-12 }
+body { @apply bg-red-500 grid grid-cols-12 }
 header { @apply col-span-12 }
 main { @apply col-span-12 md:col-start-2 md:col-span-10 lg:col-start-3 lg:col-span-8 xl:col-start-4 xl:col-span-6 }
 footer { @apply col-span-12 }

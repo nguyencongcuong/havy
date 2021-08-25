@@ -32591,7 +32591,7 @@ body {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   --tw-bg-opacity: 1;
-  background-color: rgba(249, 250, 251, var(--tw-bg-opacity))
+  background-color: rgba(239, 68, 68, var(--tw-bg-opacity))
 }
 
 header {
