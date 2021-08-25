@@ -1,0 +1,27 @@
+<nav id="siteNav">
+{{!-- {{navigation type="secondary"}} --}}
+    {{#if isSecondary}}
+        
+        <ul role="menu">
+            {{#foreach navigation}}
+                <li class="nav__item nav-{{slug}}" role="menuitem">
+                    <a href="{{url absolute="true"}}">{{label}}</a>
+                </li>
+            {{/foreach}}
+        </ul>
+    
+    {{else}}
+
+        <div>
+            <ul class="flex flex-wrap justify-center items-center px-8" role="menu">
+                {{#foreach navigation}}
+                    <li class="nav__item {{link_class for=(url) class=(concat "nav-" slug)}}" role="menuitem">
+                        <a class="p-2" href="{{url absolute="true"}}" target="_self">{{label}}</a>
+                    </li>
+                {{/foreach}}
+            </ul>            
+        </div>
+
+    {{/if}}
+
+</nav>

@@ -1,0 +1,24 @@
+{
+    "name":"havy",
+    "short_name":"havy",
+    "description":"A minimal & elegant ghost theme",
+    "lang":"en",
+    "start_url": "/",
+    "scope": "/",
+    "background_color":"#626b5d",
+    "display":"fullscreen",
+    "theme_color":"#313b3f",
+    "icons":[
+        {
+        "src": "/assets/icons/png/logo-192x192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+        },        
+        {
+        "src": "/assets/icons/png/logo-512x512.png",
+        "type": "image/png",
+        "sizes": "512x512",
+        "purpose": "maskable"
+        }
+    ]
+}

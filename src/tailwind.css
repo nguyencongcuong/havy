@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+    * { @apply box-border leading-8 }
+    
+    audio, iframe { @apply w-full }
+    img { @apply max-w-full }
+    button { @apply block cursor-pointer }
+    a { @apply no-underline cursor-pointer opacity-80 hover:opacity-100 transition-opacity duration-500 ease-in-out }
+}
+.koenigEditor h6 { @apply text-base font-bold mb-4 }
+.koenigEditor h5 { @apply text-lg font-bold mb-4 }
+.koenigEditor h4 { @apply text-xl font-bold mb-4 }
+.koenigEditor h3 { @apply text-2xl font-bold mb-4 }
+.koenigEditor h2 { @apply text-3xl font-bold mb-4 }
+.koenigEditor h1 { @apply text-4xl font-bold mb-4 }
+.koenigEditor a { @apply text-blue-400  }
+.koenigEditor ul, .koenigEditor ol { @apply pl-8 mb-8 }
+.koenigEditor ul li { @apply text-justify list-disc }
+.koenigEditor ol li { @apply text-justify list-decimal }
+.koenigEditor p { @apply mb-8 text-justify }
+.koenigEditor hr { @apply border-2 border-solid border-gray-200 pb-8 }
+.koenigEditor blockquote { @apply text-justify border-l-4 border-gray-700 border-solid p-8 mb-8 }
+.koenigEditor table { @apply block border-collapse overflow-auto mt-4 mx-auto mb-8 }
+.koenigEditor thead tr th { @apply border-2 border-solid border-gray-500 text-center p-4 }
+.koenigEditor thead tr td { @apply border-2 border-solid border-gray-500 text-center p-4 }
+.koenigEditor figure { @apply mb-8 }
+.koenigEditor figcaption { @apply block text-gray-500 text-xs text-center pt-4 px-8 pb-8 mb-8 }
+
+body { @apply bg-gray-50 grid grid-cols-12 }
+header { @apply col-span-12 }
+main { @apply col-span-12 md:col-start-2 md:col-span-10 lg:col-start-3 lg:col-span-8 xl:col-start-4 xl:col-span-6 }
+footer { @apply col-span-12 }

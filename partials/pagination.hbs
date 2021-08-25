@@ -1,0 +1,13 @@
+<nav id="pagination" class="sr-only" role="navigation">
+    
+    {{#if prev}}
+        <a class="newer-posts pagination__prev" href="{{page_url prev}}"><i class="lni lni-arrow-left"><span class="sr-only">{{t "Newer Posts"}}</span></i></a>
+    {{/if}}
+    
+    <span class="page-number">{{page}}/{{pages}}</span>
+
+    {{#if next}}
+        <a class="older-posts pagination__next" href="{{page_url next}}"><i class="lni lni-arrow-right"></i><span class="sr-only">{{t "Older Posts"}}</span></a>
+    {{/if}}
+    
+</nav>

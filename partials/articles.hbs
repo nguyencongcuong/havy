@@ -1,0 +1,61 @@
+<section id="loop">
+    <div class="p-4">
+        {{!-- Fetch all featured posts --}}
+        {{#get "posts" limit=@config.posts_per_page filter="featured:true" include="authors,tags"}}
+            {{#foreach posts}}  
+                <article
+                    class="bg-cover bg-center bg-no-repeat bg-blend-darken text-white rounded aspect-w-1 aspect-h-1 lg:aspect-w-3 lg:aspect-h-2" 
+                    style="{{#if feature_image}}background-image: url({{feature_image}}); background-color: #00000080;{{else}}background-color:#7f867b;{{/if}}">
+                        <div class="flex flex-wrap flex-col justify-center items-start content-center p-8">
+                            <a href="{{url}}" rel="canonical" target="_self">
+                                <h1 class="font-bold uppercase mb-4">{{title}}</h1>
+                            </a>
+                            <p class="desc text-justify mb-4">
+                                {{#if custom_excerpt}}
+                                    {{excerpt}}
+                                {{else}}
+                                    {{excerpt words="25"}}...
+                                {{/if}}
+                            </p>
+                            <div class="tags mb-4">{{tags separator=" • "}}</div>
+                        </div>              
+                </article>
+            {{/foreach}}
+        {{/get}}
+    </div>
+   
+    {{!-- Fetch all regular posts --}}
+    <div class="loop--regular my-masonry-grid p-4">
+    {{#foreach posts}}
+        {{#unless featured}}
+            <article class="my-masonry-grid-item rounded overflow-hidden mx-1 my-2">
+                {{#if feature_image}}
+                    <div>
+                        <img src="{{feature_image}}" alt="" class="rounded w-full h-full" >
+                    </div>
+                {{/if}}
+                <div class="bg-white p-8">  
+                    <a href="{{url}}" rel="canonical" target="_self">
+                        <h1 class="font-bold uppercase mb-4">{{title}}</h1>
+                    </a>
+                    <p class="desc text-justify mb-4">
+                        {{#if custom_excerpt}}
+                            {{excerpt}}
+                        {{else}}
+                            {{excerpt words="12"}}...
+                        {{/if}}
+                    </p>
+                    <div class="tags mb-4">{{tags separator=" • "}}</div>
+                </div>
+            </article>    
+        {{/unless}}
+    {{/foreach}}
+    </div>
+
+    {{!-- Paging--}}
+    {{pagination}}
+
+</section>
+
+
+

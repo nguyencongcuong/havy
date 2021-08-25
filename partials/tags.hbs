@@ -1,0 +1,19 @@
+<section class="bg-white rounded m-4 p-8">
+
+    <h1 class="uppercase font-bold text-center mb-4">{{t "Tags"}}</h1>
+
+    <div class="tags flex flex-wrap justify-center items-center text-center">
+        {{#get "tags" limit="all"}}
+            {{#foreach tags}}
+                <div class="tag tag-{{slug}} mouseHover mr-2 mb-4">
+                    <a 
+                        href="{{url}}" title="{{name}}" 
+                        class="tag-{{id}} {{slug}} bg-gray-50 hover:bg-gray-500 hover:text-white transition-all duration-500 rounded px-4 py-2">
+                        {{name}}
+                    </a>
+                </div>
+            {{/foreach}}
+        {{/get}}
+    </div>
+    
+</section>

@@ -1,0 +1,16 @@
+{{#if @site.logo}}
+<div class="flex justify-center items-center">
+    <a 
+        href="{{@site.url}}" 
+        target="_self">
+        <img 
+            id="siteLogo"
+            class="mb-4" 
+            src="{{@site.logo}}"
+            width="80px"
+            height="80px"
+            alt="{{@site.title}}"
+        />
+    </a>
+</div>
+{{/if}}	

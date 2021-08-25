@@ -1,0 +1,50 @@
+{{!< default}}
+
+{{#author}}
+    <div
+        style="background-color:#00000086; background-blend-mode: darken; background-image: url({{cover_image}});"
+        class="flex flex-col justify-center items-center text-white bg-cover bg-center bg-no-repeat rounded mx-4 p-8">
+        
+        <div 
+            class="rounded-full bg-cover bg-center bg-no-repeat border-2 border-white w-24 h-24 mb-4"
+            style="background-image: url({{profile_image}})"></div>
+
+        <h2 class="font-bold mb-4">
+            {{name}}
+        </h2>
+        <span class="mb-4">
+            {{location}}
+        </span>
+        <p class="mb-8">
+            {{bio}}
+        </p>
+        <div class="flex justify-evenly items-center w-full">
+
+            {{#if facebook}}
+                <a 
+                    href="https://facebook.com/{{facebook}}" 
+                    target="_blank" rel="noopener">
+                    Facebook
+                </a>
+            {{/if}}
+            {{#if twitter}}
+                <a 
+                    href="https://twitter.com/{{twitter}}" 
+                    target="_blank" 
+                    rel="noopener">
+                    Twitter
+                </a>
+            {{/if}}
+            {{#if website}}
+                <a 
+                    href="{{website}}" 
+                    target="_blank" 
+                    rel="noopener">
+                    Website
+                </a>
+            {{/if}}
+
+        </div>	
+
+    </div>
+{{/author}}

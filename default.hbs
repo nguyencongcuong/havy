@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="{{@site.locale}}">
+
+<head>
+
+	{{!-- Document Settings --}}
+	<meta charset="utf-8">
+	<meta name="description" content="{{@site.description}}">
+	<meta name="keywords" content="{{#get "tags" limit="all"}}{{#foreach tags}}{{name}} {{/foreach}}{{/get}}">
+	<meta name="author" content="{{#get "authors" limit="all"}}{{#foreach authors}}{{name}}{{/foreach}}{{/get}}">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	{{!-- PWA --}}
+	<link rel="preconnect" href="https://images.unsplash.com">
+	<link rel="manifest" href="/manifest.json">
+	<meta name="theme-color" content="#313b3f">
+	<link rel="apple-touch-icon" href="{{asset "icons/png/apple-touch-icon-180x180.png"}}">	
+
+	{{!-- Base Meta --}}
+	<title>{{meta_title}}</title>
+
+	{{!-- Prism --}}
+	<link href="{{asset "/css/prism.min.css"}}" media="screen" rel="stylesheet">
+
+	{{!-- Global CSS --}}
+	<link href="{{asset "/css/koenig.css"}}" media="screen" rel="stylesheet">
+
+	{{!-- Tailwindcss --}}
+	<link href="{{asset "/css/tailwind.css"}}" rel="stylesheet">
+
+	{{!-- This tag outputs SEO meta + structured data and other important settings --}}
+	{{ghost_head}}
+
+</head>
+
+<body class="{{body_class}}">
+	
+	<header>{{> intro}}</header>
+	<main>{{{body}}}</main>
+	<footer>{{> copyright}}</footer>
+
+	{{!-- SCRIPTS --}}
+	{{!-- Service Worker for PWA --}}
+	<script>
+	if ('serviceWorker' in navigator) {
+		window.addEventListener('load', () => {
+		navigator.serviceWorker.register('/sw.js');
+		});
+	}
+	</script>	
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="{{asset "js/main.js"}}"></script>
+	<script async type="text/javascript" src="{{asset "js/minified/lazysizes.min.js"}}"></script>
+	
+	<script type="text/javascript" src="{{asset "js/jquery.masonryGrid.js"}}"></script>
+	<script>
+		$(function(){
+		$('.my-masonry-grid').masonryGrid({
+			'gutter': ".gutter-size",
+			'columns': 2,
+			'breakpoint': 992
+		});
+		});
+	</script>
+
+	{{#is "page, post"}}
+	<script type="text/javascript" src="{{asset "js/fluidvids.js"}}"></script>
+	<script type="text/javascript" src="{{asset "js/gallery.js"}}"></script>
+	<script type="text/javascript" src="{{asset "js/minified/prism.min.js"}}"></script>
+	{{/is}}
+
+	{{#is "post"}}
+	<script type="text/javascript" src="{{asset "js/minified/jquery.toc.min.js"}}"></script>
+	{{/is}}
+
+	{{!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. --}}
+	{{{block "scripts"}}}
+
+	{{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
+	{{ghost_foot}}
+
+</body>
+
+</html>

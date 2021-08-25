@@ -1,0 +1,47 @@
+<div 
+    id="siteCover" 
+    style="background-color:#00000086; background-image: url({{#is "index"}}{{@site.cover_image}}{{/is}}{{#is "page, post"}}{{#post}}{{feature_image}}{{/post}}{{/is}}{{#is "tag"}}{{#tag}}{{feature_image}}{{/tag}}{{/is}});"
+    class="bg-cover bg-center bg-no-repeat bg-blend-darken text-white rounded m-8 aspect-w-1 aspect-h-1 lg:aspect-w-3 lg:aspect-h-1"
+    >
+			
+    <div class="flex justify-center items-center text-center p-8">
+
+        {{!-- Index --}}
+        {{#is "index"}}
+        <div>
+            <p>{{@site.description}}</p>	
+        </div>
+        {{/is}}	
+
+        {{!-- Tag Template--}}
+        {{#is "tag"}}
+            {{#tag}}
+            <div>
+                <h1>{{name}}</h1>
+                {{#if description}}<p>{{description}}</p>{{/if}}
+            </div>
+            {{/tag}}
+        {{/is}}
+
+        {{!-- Post Info --}}
+        {{#is "post"}}
+            {{#post}}
+            <div class="text-white">
+                {{#primary_author}}
+                <div 
+                    class="rounded-full bg-cover bg-center bg-no-repeat border-4 border-white w-24 h-24 mb-4 m-auto"
+                    style="background-image: url({{profile_image}})">
+                </div>
+                <h2 class="font-bold mb-4">
+                    {{name}}
+                </h2>
+                {{/primary_author}}					
+                <h1 class="text-2xl">{{title}}</h1>
+            </div>
+            {{/post}}
+        {{/is}}
+
+            
+    </div>       		
+
+</div>
